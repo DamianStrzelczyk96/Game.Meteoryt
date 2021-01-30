@@ -126,6 +126,14 @@ public class Kosmos extends JPanel {
         }).start();
 
     }
+    public static BufferedImage imageToBufferedImage(Image im) {
+        BufferedImage bi = new BufferedImage
+                (im.getWidth(null),im.getHeight(null),BufferedImage.TYPE_INT_RGB);
+        Graphics bg = bi.getGraphics();
+        bg.drawImage(im, 0, 0, null);
+        bg.dispose();
+        return bi;
+    }
 
     public static BufferedImage resize(BufferedImage img, int height , int width){
         Image tmp = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -139,12 +147,19 @@ public class Kosmos extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        try {
-            g.drawImage(ImageIO.read(new File("tlo.png")), 0,0,null);
-            g.drawImage(ImageIO.read(new File("ufo.png")),x-25, y-25 , null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Image ufo = new ImageIcon(getClass().getResource("images/ufo.png")).getImage();
+        Image tlo = new ImageIcon(getClass().getResource("images/tlo.png")).getImage();
+        Image meteorP = new ImageIcon(getClass().getResource("images/meteor.png")).getImage();
+//        try {
+
+//            g.drawImage(ImageIO.read(new File("images/tlo.png")), 0,0,null);
+            g.drawImage(tlo, 0,0,null);
+//            g.drawImage(ImageIO.read(new File("ufo.png")),x-25, y-25 , null);
+            g.drawImage(ufo,x-25, y-25 , null);
+//       }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
         g.setColor(Color.BLUE);
         g.setFont(new Font("Arial", Font.BOLD,20));
         g.drawString("SCORE: "+pkt+"",850,30);
@@ -154,7 +169,7 @@ public class Kosmos extends JPanel {
         for(Meteoryt meteor : meteorytTab) {
             meteor.ruch();
             try {
-                g.drawImage(resize((BufferedImage)ImageIO.read(new File("meteor.png")),meteor.size,meteor.size),meteor.x,meteor.y,null);
+                g.drawImage(resize((BufferedImage)ImageIO.read(new File("C:\\Users\\Damianek\\Desktop\\Projekty IntelJ\\CodeWars\\src\\main\\resources\\images/meteor.png")),meteor.size,meteor.size),meteor.x,meteor.y,null);
             } catch (IOException e) {
                 e.printStackTrace();
             }

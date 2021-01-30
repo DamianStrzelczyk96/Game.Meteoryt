@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CodeWars:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CodeWars_jar</output-path>
+    <root id="archive" name="CodeWars.jar">
+      <element id="module-output" name="CodeWars" />
+    </root>
+  </artifact>
+</component>
