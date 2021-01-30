@@ -3,4 +3,4 @@
 # -Java 8
 # -JPanel
 
-![alt text](https://github.com/DamianStrzelczyk96/Game.Meteoryt/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/DamianStrzelczyk96/Game.Meteoryt/blob/master/Ufo1.png?raw=true)
